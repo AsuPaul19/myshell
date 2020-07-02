@@ -406,26 +406,28 @@ void change_dir(const char *path_name)
     }
 } // end change_dir()
 
+
 // ls()
 void ls(int argc, char *argv[]) 
 {
 
     struct dirent **namelist;
-    int n;
+    int i, n;
+
     if(argc < 1)
     {
         exit(EXIT_FAILURE);
     }
     else if (argc == 1)
     {
-        n = scandir(".",&namelist,NULL,alp);
+        n = scandir(".", &namelist, NULL, alphasort());
     }
     else {
-    n = scandir(argv[1], &namelist, NULL, alphasort);
+        n = scandir(argv[1], &namelist, NULL, alphasort());
     }
     if(n < 0) {
-    perror("scandir");
-    exit(EXIT_FAILURE);
+        perror("scandir");
+        exit(EXIT_FAILURE);
     }
     else if(n==2)
     {
