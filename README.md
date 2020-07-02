@@ -19,5 +19,3 @@ gcc -I -Wall myshell.c -o myshell
 clean:
 rm myshell
 
-
-## List Extra Credit completed (if not attempted leave blank)
